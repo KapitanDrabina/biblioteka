@@ -33,6 +33,7 @@ class ksiazka
             cout << "Podaj egzemplarz: ";
             cin >> egzemplarz;
             cout << endl;
+            //nie wchodza stringi podzielone spacja/tabem itp. (?)
         }  
         void wyswietlanie_danych()
         {
@@ -50,8 +51,7 @@ int main()
 {
     vector<ksiazka> biblioteka;
 
-    bool uzywanie = true;
-    while (uzywanie == true)
+    while (0 == 0)
     {
         cout << "Co chcesz zrobić?" << endl;
         cout << "   1 - Dodać nową książkę" << endl;
