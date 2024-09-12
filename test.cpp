@@ -16,11 +16,12 @@ using namespace std;
         {
             cout << "Podaj ID: ";
             cin >> this->id;
+            cin.ignore();
             cout << endl;
  
             cout << "Podaj tytuł: ";
             getline(cin, this->tytul);
-            //cout << endl;
+            cout << endl;
  
             cout << "Podaj autora: ";
             getline(cin, this->autor);
