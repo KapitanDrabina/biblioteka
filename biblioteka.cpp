@@ -14,35 +14,37 @@ using namespace std;
     public:
         void wstawianie_danych()
         {
+            cout << "Podaj ID: ";
             setId();
             cout << endl;
  
+            cout << "Podaj tytuł: ";
             setTytul();
             cout << endl;
  
+            cout << "Podaj autora: ";
             setAutor();
             cout << endl;
- 
+
+            cout << "Podaj datę: ";
             setDate();
             cout << endl;
  
+            cout << "Podaj egzemplarz: ";
             setEgzemplarz();
             cout << endl;
         }  
         void setId()
         {
-            cout << "Podaj ID: ";
             cin >> this->id;
             cin.ignore();
         }
         void setTytul()
         {
-            cout << "Podaj tytuł: ";
             getline(cin, this->tytul);
         }
-        void setAutor()
+        void setAutor() //obsluguje tylko format imie nazwisko/nazwisko imie
         {
-            cout << "Podaj autora: ";
             getline(cin, autor);
             int spacja = autor.find(" ");
 
@@ -64,12 +66,10 @@ using namespace std;
         }
         void setDate()
         {
-            cout << "Podaj datę: ";
             cin >> this->data;
         }
         void setEgzemplarz()
         {
-            cout << "Podaj egzemplarz: ";
             cin >> this->egzemplarz;
         }
         void wyswietlanie_danych()
@@ -146,7 +146,9 @@ class Biblioteka
             }
             cout << "Autora Której książki chcesz edytować? (Podaj numer) ";
             cin >> numer;
+            cin.ignore();
             numer = numer - 1;
+            cout << "Podaj autora: ";
             ksiazki[numer].setAutor();
         }
 };
@@ -165,8 +167,9 @@ int main()
         cout << "   1 - Dodać nową książkę" << endl;
         cout << "   2 - Edytować dane istniejącej książki" << endl;
         cout << "   3 - Przejrzeć istniejące zapisane książki" << endl;
-        cout << "   4 - Zakończyć program" << endl;
-        cout << "   5 - Zmienić autora wybranej książki" << endl << endl;
+        cout << "   4 - Zmienić autora wybranej książki" << endl;
+        cout << "   5 - Zakończyć program" << endl << endl;
+        
  
         int akcja;
         cin >> akcja;
@@ -176,25 +179,29 @@ int main()
         {
             cout<< "Podaj poprawny numerek" << endl << endl;
         }
-        else if (akcja == 4)
+
+        else if (akcja == 5)
         {
             break;
         }
+
         else if (akcja == 1)
         {
             Ksiazka ksiazka1;
             ksiazka1.wstawianie_danych();
             biblioteka.addKsiazka(ksiazka1);
         }
-        else if (akcja == 3)
-        {
-            biblioteka.showAllKsiazki();
-        }
+
         else if (akcja == 2)
         {
             biblioteka.editKsiazka();
         }
-        else if (akcja == 5)
+        else if (akcja == 3)
+        {
+            biblioteka.showAllKsiazki();
+        }
+
+        else if (akcja == 4)
         {
             biblioteka.editAutor();
         }
